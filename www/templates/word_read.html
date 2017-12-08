@@ -1,0 +1,105 @@
+﻿<!--<div class="bar bar-header dy-word-common-top">
+	<span class="s1">发音</span><br>
+	<span class="s2"> {{index+1}}/{{words.length}}</span>
+	<span class="s3" ng-click="goUnit()">单词列表</span>
+	<span class="s4" ng-click="goWordList()">收藏</span>
+</div>-->
+
+<ion-header-bar class="bar-positive">
+		<button ng-if="words.length>1" class="button button-clear" ng-click="goUnit()">
+                            单词列表
+        </button>
+        
+		<button ng-if="words.length==1" class="button button-clear" ng-click="goBack()">
+                             返回
+        </button>
+		
+		<h1 class="title" style="text-align: center;">发音 {{index+1}}/{{words.length}}</h1>
+		
+	    <button ng-if="word.is_favorite=='0'" class="button button-clear" ng-click="fav()">
+<!--                      收藏
+-->     <img width="22px" style="margin-top:6px;" src="img/shoucang4.png"/>   
+
+        </button>
+        
+        <button ng-if="word.is_favorite=='1'" class="button button-clear" ng-click="fav()">
+<!--                      已收藏    
+-->     <img width="22x" style="margin-top:6px;"  src="img/shoucang3.png"/>          
+            
+        </button>
+</ion-header-bar>
+	
+<ion-content class="has-header backgroud-light">
+	<div style="margin-bottom: 100px;">
+		<div style="background: white;">
+			
+			<!--<div style="font-size: 28px;padding: 10px;position: relative;">
+				<span style="text-align:center;width: 180px;line-height:35px;font-size: 30px;color:#FB6969;position: absolute;left: 50%;transform: translate(-50%,0);">{{word.en}}</span>
+				<span class="dy-word-test-explain" style="width: 60px;text-align: right;position: absolute;right: 0px;">
+					<img class="star_img" src="img/star_1.png" ng-if="scoreobj.ifget" ng-repeat="scoreobj in scoreObjArr">
+					<img class="star_img" src="img/star_2.png" ng-if="!scoreobj.ifget" ng-repeat="scoreobj in scoreObjArr">
+				</span>
+			</div>-->
+			
+			<div class="row">
+				<div class="col col-25"></div>
+				<div class="col col-50 text-center"><span style="text-align:center;font-size: 30px;line-height:40px;color:#FB6969;">{{word.en}}</span></div>
+				<div class="col col-25">
+					<span class="dy-word-test-explain">
+						<img class="star_img" src="img/star_1.png" ng-if="scoreobj.ifget" ng-repeat="scoreobj in scoreObjArr">
+						<img class="star_img" src="img/star_2.png" ng-if="!scoreobj.ifget" ng-repeat="scoreobj in scoreObjArr">
+				    </span>
+				</div>
+			</div>
+						
+		    <div style="height: 40px;line-height: 40px;text-align: center;"><span ng-if="word.ipa">[{{word.ipa}}]</span> <img id="detail_paly_0" ng-click="playDetailWord0(word.audio)" style="height:22px;padding-right: 10px;display: inline-block;vertical-align: middle;" src="img/nan.png"><img   id="detail_paly_1" ng-click="playDetailWord1(word.audio1)"  style="height:22px;padding-right: 10px;display: inline-block;vertical-align: middle;" src="img/nv.png"></div>
+			
+			<div class="text-center" style="padding:0 10px 10px 10px;font-size:16px;color: black;font-weight: bold;">
+	             <div ng-repeat="def in word.defs"><span style="color: gray;">{{def.cx}}</span>&nbsp;<span>{{def.zh}}</span></div>
+			</div>
+			
+		</div>
+
+		<div style="background: white;padding-top:5px;padding-bottom: 10px;margin-top: 10px;">
+
+			<div class="dy-word-read-out">
+				<!--<div class="read-1">
+			<img src="img/fypj_08.png" /><span> 按住录音3s自动结束  </span>
+		</div>-->
+				<div class="read-2 row row-center">
+					<div class="col col-33">
+						<span><font color="#f23a02" size="28px;" style=" text-shadow: 1px 0 black, 0 1px black,  0 -1px black, -1px 0 black;">{{score}}</font>分</span>
+					</div>
+
+					<div class="col col-67">
+						<div style="position: relative;">
+							<img style="display: inline-block; width: 20px;position: absolute;top:0px;left:5%;z-index: 1;" src="img/paly1_03.png">
+							<span class="bar-fill progress_bar">
+                            </span>
+
+							<span style="position: absolute;right: 2%;top: 0px;font-size: 20px;">{{seconds}}秒</span>
+							<!--<img style="height: 10px;position: absolute;top:5px;left:-50px" src="img/paly01_08.png">-->
+						</div>
+						<br><br>
+						<span style="width:150px;"> 开始录音{{time_long}}秒自动结束</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="dy-word-test-radio">
+				<img src="img/xiaoxue_cut_07.png" id="read_play" ng-if="recorded" ng-click="playRecordAudio()">
+				<img src="img/xiaoxue_cut_09.png" id="read_record" ng-if="!playing" ng-click="recordAudio()">
+			</div>
+
+		</div>
+
+		<div class="dy-word-test2-title" style="background:white;text-align: left;padding: 10px;color: darkgrey;">
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发音可反复练习哦，90分及以上三星，80分以上90以下两星，70分以上80分以下一星。</div>
+		</div>
+	</div>
+</ion-content>
+
+<div  class="row row-center text-center common_bottom_div">
+	<div class="col" ng-click="goNext()"><span style="vertical-align:middle">继续</span>&nbsp;<img width="20" style="vertical-align: middle" src="img/jixu2.png"/></div>
+</div>
+

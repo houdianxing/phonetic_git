@@ -1,0 +1,68 @@
+﻿
+
+
+<div class="bar bar-header dy-word-common-top">
+	<span class="s1" style="font-size: 22px;">APP激活</span><br>
+	<span class="s3" ng-click="goBack()">返回</span>
+</div>
+
+
+<ion-content class="has-header backgroud-light">
+		
+	<div class="row row-center text-center" style="height: 40px;background: white;padding: 0px;">
+		<div ng-class="{'col':true,'app_vcode_bar':true,'activd':showLeft}" ng-click="show1()" >购买验证码</div>
+		<div ng-class="{'col':true,'app_vcode_bar':true,'activd':showRight}"  ng-click="show2()" >已有验证码</div>
+	</div>
+		
+
+
+	<div>
+		
+		<div ng-show="showLeft"  style="background: white;margin-top: 10px;padding: 10px;border-top: 1px solid gainsboro;border-bottom: 1px solid gainsboro">
+			<div class="text-left padding">{{mybook.name}}验证码</div>
+			<div class="text-left padding" style="color:burlywood;">{{mybook.ad_info}}</div>
+			<div class="row">
+				<div class="col-20 col-center" style="color: gray;text-decoration:line-through;">原价：¥{{change_price}}</div>
+				<div class="col-20 col-center text-center" style="color: red;font-size:20px ;">¥{{change_sale_price}}</div>
+				<div class="col-60 text-center" class="text-center" style="padding: 5px;">
+					<button ng-show="!userinfo.active" class="app_vcode_button" ng-click="unifiedorder(userinfo.id,mybook.id)">
+			                             购买验证码
+		            </button>
+		            <button ng-show="userinfo.active" class="app_vcode_button" style="background:gainsboro;"  ng-click="">
+			                             您已激活                  
+		            </button>
+				</div>					
+			</div>
+			<div class="text-center padding">支付方式：仅支持微信支付</div> 
+			
+			
+			<div ng-show="!userinfo.active" class="text-center padding" style="color:lightslategray" ng-click="show_jihuoyanzheng=!show_jihuoyanzheng">支付成功未激活请点击</div>
+			
+			<div class="text-center padding" ng-show="show_jihuoyanzheng&&!userinfo.active">
+					
+		        	<div class="text-left padding">很抱歉出现这样的问题，原因是微信商户平台同步订单延迟，请联系微信13581974680</div>
+					
+			</div>
+			
+			<div id="appvcode_detail" class="padding" style="border-top:1px solid gainsboro;">
+			</div>
+		</div>
+		
+		
+		<div ng-show="showRight" style="background: #ffffff;margin-top: 10px;padding: 10px;padding: 10px;border-bottom: 1px solid gainsboro;">
+		
+			<div class="text-left padding">输入或粘贴对应的APP验证码(文本)</div>
+			<label class="item item-input" style="margin-left: 30px;margin-right: 30px;">
+			<input type="text" id="vcode_text" placeholder="输入或粘贴对应的APP验证码 ">
+		    </label>
+			<div class="text-center" style="padding: 5px;">
+				<button class="app_vcode_button" ng-click="vcodeByText()">
+			                提交验证码
+		        </button>
+			</div>
+		</div>
+
+	
+	</div>
+</ion-content>
+

@@ -1,0 +1,32 @@
+<div class="bar bar-header dy-word-common-top">
+	
+	<span class="s3" ng-click="goBack()">返回</span>	
+
+	<span class="s1"style="font-size: 22px;" >跟我学</span><br>
+</div>
+
+<ion-content class="has-header background-yx">
+
+	<div style="padding-bottom: 50px;">
+		
+		 <div ng-show="rootword.video_brush!=''" >
+			<div class="video-box" style="margin-left: 10px;margin-right: 10px;margin-top: 10px;background: white;">
+				<video src="" controls="controls"  style="width: 100%;">
+					your browser does not support the video tag
+				</video>
+			</div>
+		</div>
+		
+	    <div id="phonetic_words_div" style="margin-left: 10px;margin-right: 10px;margin-top: 10px;">
+	       <div class="text-center" style="background-color:white;padding: 5px;font-weight: bold;color: #69717D;">常见字母及组合</div>		
+	    </div>
+	    
+	   
+	</div>
+	
+</ion-content>
+
+<div class="row row-center text-center" style="font-size: 18px; padding: 0px;height: 45px;background: white;position: absolute;left: 0px;bottom: 0px;border-top:2px solid #f0f0f0;">
+	<div class="col nextbt"  ng-click="goNext()" >继续</div>
+</div>
+	

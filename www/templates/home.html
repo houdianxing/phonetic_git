@@ -1,0 +1,35 @@
+﻿
+<div class="bar bar-header dy-word-common-top">
+	<span class="s1"style="font-size: 22px;" >英语国际音标</span>
+<!--	<img src="img/iconfont-fuka.png" width="26px" height="26px" style="margin-top:4px;" ng-click="goMy()"/>	
+-->		
+</div>
+<ion-content class="has-header backgroud-wit">
+		
+	<div style="padding:5px;padding-bottom: 45px;">
+	    <div class="text-left">
+	    	<div class="row row-center" style="padding-top: 0px;padding-bottom: 0px;" ng-repeat="phonetic in phonetics">
+	    		<div class="col col-10 " style="font-size: 20px;color: gray;">{{phonetic.name}}</div>
+	       	    <div class="col col-90 book-list">
+	       	    	<div  class="book-col phonetic_{{item.pid}}" style="position:relative;height: 46px;" ng-repeat="item in phonetic.datas" ng-click="getword($index,item.id,76)"> 
+	       	    	 	<button style="position: absolute;left:0px;top:0px;height: 46px;width: 46px;font-size:26px;border-style:none;background: none;" >
+	       	    		  {{item.en}}
+	       	    	    </button>
+	       	    	    <span ng-if="$index>0&&!userinfo.active" style="position: absolute;top: 0;left: 0;border: 23px solid rgba(0, 0, 0, .45);border-radius: 5px;"></span>
+	       	            <img ng-if="$index>0&&!userinfo.active" style="width: 20px;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"  src="img/lock_03.png">
+	       	    	</div>
+<!--	    	   	    <button class=" book-col phonetic" style="font-size:26px; margin: 4px;border-style:none;color: white;" ng-repeat="item in phonetic.datas" ng-click="getword(item.id,76)">{{item.en}}</button>
+-->	       	    </div>
+	       	</div>
+	    </div>
+	</div>
+		
+</ion-content>
+<div class="row row-center text-center" style="padding: 0px;height: 45px;background: white;position: absolute;left: 0px;bottom: 0px;font-size: 18px;border-top:2px solid #f0f0f0;">
+	<div ng-class="{'col':true,'phonetic_tab_select':select==0}" style="padding: 0px;height: 45px;line-height: 45px;"  ng-click="show(0)" >元音</div>
+	<div ng-class="{'col':true,'phonetic_tab_select':select==1}" style="padding: 0px;height: 45px;line-height: 45px;"  ng-click="show(1)" >辅音</div>
+	<div ng-class="{'col':true,'phonetic_tab_select':select==2}" style="padding: 0px;height: 45px;line-height: 45px;"  ng-click="show(2)" >游戏</div>
+	<div ng-class="{'col':true,'phonetic_tab_select':select==3}" style="padding: 0px;height: 45px;line-height: 45px;"  ng-click="show(3)" >我的</div>
+</div>
+
+		

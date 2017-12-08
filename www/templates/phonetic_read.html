@@ -1,0 +1,31 @@
+<div class="bar bar-header dy-word-common-top">
+	
+     <!--<img class="s3" src="img/arrow_right.png" ng-click="goBack()">-->
+	<span class="s3" ng-click="goBack()">返回</span>	
+
+	<span class="s1"style="font-size: 22px;" >跟我练</span><br>
+</div>
+
+<ion-content class="has-header background-yx">
+
+	<div style="padding-bottom: 50px;">
+		<div class="text-center" style="padding: 10px;font-size:30px;margin-bottom: 10px;background-color:white;color:#ff7800;">{{rootword.en.replaceAll("/","")}}</div>		
+	    <div id="phonetic_reads_div" style="margin-left: 10px;margin-right: 10px;margin-top: 10px;background-color:white;">
+			<div ng-repeat="read in readlists">
+				<div class="row" style="padding:0px;" id={{"phoneticreadsdemo"+$index}} ng-click="phoneticreadsdemoClick($index)"><div class="col" style="font-size:18px">{{read.question}}</div></div>
+				<div class="row" style="padding:0px;" >
+					<div class="col col-10 col-center text-center" style="height:40px;line-height:40px" ng-click="phoneticreadsdemoClick($index)"><img style="width:20px;hight:20px" id={{"phoneticreadsimg"+$index}}  src="img/play.png"></div>
+					<div class="col col-10 col-center text-left" style="height:40px;line-height:40px" id={{"phoneticreadrecordimg"+$index}}  ng-click="phoneticreadrecordClick($index)"><img style="width:22px;hight:22px" src="img/s_record.png"></div><div ng-show="nowindex==$index&&recorded" class="col col-10 col-center text-right" style="height:40px;line-height:40px" id={{"phoneticreadplayimg"+$index}} ng-click="phoneticreadplayClick($index)"><img style="width:22px;hight:22px"  src="img/s_replay.png"></div>
+				    <div class="col col-70 col-center text-right" ng-if="read.score>=10&&read.score<70" style="height:40px;line-height:40px"><img style="width:20px;hight:20px" src="img/collected.png"><img style="width:20px;hight:20px" src="img/star_2.png"><img style="width:20px;hight:20px" src="img/star_2.png"></div>
+					<div class="col col-70 col-center text-right" ng-if="read.score>=70" style="height:40px;line-height:40px"><img style="width:20px;hight:20px" src="img/collected.png"><img style="width:20px;hight:20px" src="img/collected.png"><img style="width:20px;hight:20px" src="img/collected.png"></div>
+					<div class="col col-70 col-center text-right" ng-if="read.score<10" style="height:40px;line-height:40px"><img style="width:20px;hight:20px"  src="img/star_2.png"><img style="width:20px;hight:20px" src="img/star_2.png"><img style="width:20px;hight:20px" src="img/star_2.png"></div>
+				</div>
+			<div style="height:5px;background-color: #f0f0f0;"/>
+			</div>
+		</div>
+	</div>
+</ion-content>
+<div class="row row-center text-center" style="font-size: 18px; padding: 0px;height: 45px;background: white;position: absolute;left: 0px;bottom: 0px;border-top:2px solid #f0f0f0;">
+	<div class="col nextbt"  ng-click="goNext()" >继续</div>
+</div>
+	

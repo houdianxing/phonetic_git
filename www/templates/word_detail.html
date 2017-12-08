@@ -1,0 +1,45 @@
+<div class="bar bar-header dy-word-common-top">
+	
+	<span class="s3" ng-click="goBack()">返回</span>	
+
+
+	<span class="s1"style="font-size: 22px;" >听我读</span><br>
+</div>
+<!--#ff7800-->
+<ion-content class="has-header background-yx">
+
+	<div style="padding-bottom: 50px;">
+		
+		<div style="background:white;margin:10px;">  
+			<div class="text-center" style="padding-top:20px;">
+				<span ng-click="playPhonetic()"  style="position: relative;">
+				    <img  style="width:15px;position: absolute;left:-32px;top:-5px" src="img/white_laba.png" id="phonetic" /><br>
+					<span style="font-size:40px;color:white;background: rgb(85,143,242);border-radius:5px;padding:15px;padding-left: 18px;padding-right: 18px;-moz-box-shadow: 0px 2px 2px #333333;-webkit-box-shadow: 0px 2px 2px #333333;box-shadow: 0px 2px 2px #333333;">&nbsp;{{rootword.en.replaceAll("/","")}}&nbsp;</span>
+				</span>
+			</div>
+			<div class="row text-left" style="margin-top: 30px;" ng-click="playDemoWord()">
+				<div class="col col-10 col-center"><img  style="width: 24px;height: 24px;margin-top:4px;" id="phoneticdemo" src="img/play.png"> </div>
+				<div class="col col-90 col-center" style="font-size: 26px;color: #69717D;" >
+					<span id={{"s1_"+rootword.word_id}}></span> &nbsp;<span style="font-size: 22px;color: #69717D;" id={{"s2_"+rootword.word_id}}></span>
+			        &nbsp;<span style="font-size: 18px;color: gray;">{{rootword.phonetic.split("#")[2]}}</span>
+				</div>			
+<!--				<div class="col col-20 col-center" style="font-size: 22px;color: #69717D;" id={{"s2_"+rootword.word_id}}></div>	
+-->			
+			</div>
+		</div>
+		<div  id={{"qiao_men_"+rootword.word_id}} style="margin-left: 10px;margin-right:10px;background-color:white;padding: 5px;color: grey;"><div class="text-center"><span style="font-weight: bold;color:#69717D">发音窍门</span></div></div>		
+	    <div ng-show="rootword.video!=''">
+			<div class="video-box" style="margin-left: 10px;margin-right: 10px;margin-top: 10px;background-color: white;">
+				<video src="" controls="controls"  style="width: 100%;">
+					your browser does not support the video tag
+				</video>
+			</div>
+		</div>
+	</div>
+	
+</ion-content>
+
+<div class="row row-center text-center" style="font-size:18px; padding: 0px;height: 45px;background: white;position: absolute;left: 0px;bottom: 0px;border-top:2px solid #f0f0f0;">
+	<div class="col nextbt"  ng-click="goNext()" >继续</div>
+</div>
+	

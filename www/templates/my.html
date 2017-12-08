@@ -1,0 +1,53 @@
+<div class="bar bar-header dy-word-common-top">
+	<span class="s1"style="font-size: 22px;font-family: 'arial black';" >我的</span>
+	<span class="s3" ng-click="goBack()">返回</span>	
+</div>
+
+<ion-content class="has-header backgroud-light">
+
+	<div class="padding text-center">
+		<img src="{{userinfo.headimgurl}}" style="width: 20%;height: 20%; border-radius:50%;">
+	</div>
+	<div class="text-center" style="font-size: 16px;margin-bottom: 5px;">{{userinfo.nickname}}</div>
+	<div class="list">
+
+		<a ng-if="userinfo.id!=24" class="item" href="#/me_appvcode">
+			APP激活
+		</a>
+
+	    <a ng-if="userinfo.id!=24" class="item" ng-click="openXx()">
+			小学英语单词
+        </a>
+
+        <div id="append_html">
+            	
+        </div>  
+                
+
+        <a ng-if="userinfo.id!=24" class="item" ng-click="openCz()">
+			初中英语单词
+        </a>
+
+        <a ng-if="userinfo.id!=24" class="item" ng-click="openFeilong()">
+			飞龙图书音像专营店 
+        </a>
+
+		<a ng-if="userinfo.id!=24" class="item" href="#/my_vcode">
+		      我的验证码
+        </a>
+
+
+		<a ng-if="userinfo.id!=24" class="item" href="#/my_order">
+		       我的订单
+        </a>
+        
+		<a class="item" href="#/me_aboutus">
+		       关于我们
+        </a>
+
+	</div>
+	
+    <div class="text-center" style="margin-bottom: 30px;">版本  {{currentVersion}}</div>
+
+	
+</ion-content>
